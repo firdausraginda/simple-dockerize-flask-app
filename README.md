@@ -2,19 +2,29 @@
 
 ## Dependencies
 
-Install pipenv
+Create virtual env
 ```sh
-pip install --user pipenv
+python3 -m venv vir-env
+```
+
+Activate virtual env
+```sh
+source vir-env/bin/activate
 ```
 
 Install flask
 ```sh
-pipenv install flask
+pip3 install flask
 ```
 
 Install gunicorn
 ```sh
-pipenv install gunicorn
+pip3 install gunicorn
+```
+
+Write pip list to `requirements.txt`
+```sh
+pip3 freeze > requirements.txt
 ```
 
 ## Docker
@@ -36,7 +46,7 @@ Run command inside virtual env
 gunicorn -w 4 --reload -b 0.0.0.0:8022 main:app
 ```
 
-### Execute via docker container
+### Execute via Dockerfile
 
 Create and run container
 ```sh
