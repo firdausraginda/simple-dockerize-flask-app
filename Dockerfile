@@ -11,4 +11,4 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 COPY . /app
 
 # run command
-CMD gunicorn -w 4 --reload -b 0.0.0.0:8082 main:app
+CMD gunicorn -w 4 --reload -b 0.0.0.0:8080 main:app
