@@ -43,14 +43,14 @@ docker build -t simple-dockerize-flask .
 Run command inside virtual env
 
 ```sh
-gunicorn -w 4 --reload -b 0.0.0.0:8022 main:app
+gunicorn -w 4 --reload -b 0.0.0.0:8080 main:app
 ```
 
 ### Execute via Dockerfile
 
 Create and run container
 ```sh
-docker run -d -p 8082:8082 --name simple-dockerize-flask-app simple-dockerize-flask
+docker run -d -p 8080:8080 --name simple-dockerize-flask-app simple-dockerize-flask
 ```
 
 ### Execute via docker compose
@@ -62,4 +62,4 @@ docker-compose up
 
 ### on browser
 
-Open in browser `http://localhost:8022/`
+Open in browser `http://localhost:8080/`
