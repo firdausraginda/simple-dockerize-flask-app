@@ -1,5 +1,16 @@
 steps:
 
+  # 0. remove tagged docker image
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'rerun-docker-container'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud compute ssh instance-20240324-050710 --zone=us-central1-a --ssh-key-file=./ssh_key_cloud_build \
+          --command "\
+            sudo docker image rm us-east1-docker.pkg.dev/alpine-life-350508/docker-base-image/flask-app-img:latest"
+
   # 1. build docker image
   - name: 'gcr.io/cloud-builders/docker'
     id: 'build-docker-image'
@@ -47,7 +58,6 @@ steps:
         chmod 400 ./ssh_key_cloud_build \
         && gcloud compute ssh instance-20240324-050710 --zone=us-central1-a --ssh-key-file=./ssh_key_cloud_build \
           --command "\
-            sudo docker image rm us-east1-docker.pkg.dev/alpine-life-350508/docker-base-image/flask-app-img:latest; \
             cd /home/ragindafirdaus01/simple-dockerize-flask-app/; \
             sudo docker compose down; \
             sudo docker compose up -d"
