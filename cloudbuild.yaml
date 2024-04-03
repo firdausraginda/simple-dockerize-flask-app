@@ -45,8 +45,8 @@ steps:
       - '-c'
       - |
         chmod 400 ./ssh_key_cloud_build \
-        && gcloud compute scp --zone=us-central1-a --ssh-key-file=./ssh_key_cloud_build docker-compose.yaml flask-app-instance:/home/ragindafirdaus01/simple-dockerize-flask-app/docker-compose.yaml \
-        && gcloud compute ssh flask-app-instance --zone=us-central1-a --ssh-key-file=./ssh_key_cloud_build \
+        && gcloud compute scp --zone=us-central1-a --ssh-key-file=./ssh_key_cloud_build docker-compose.yaml instance-20240324-050710:/home/ragindafirdaus01/simple-dockerize-flask-app/docker-compose.yaml \
+        && gcloud compute ssh instance-20240324-050710 --zone=us-central1-a --ssh-key-file=./ssh_key_cloud_build \
           --command "\
             cd /home/ragindafirdaus01/simple-dockerize-flask-app/; \
             sudo docker compose down; \
