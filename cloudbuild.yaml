@@ -46,9 +46,9 @@ steps:
       - |
         chmod 400 ./ssh_key_cloud_build \
         && gcloud compute scp --zone=us-central1-a --ssh-key-file=./ssh_key_cloud_build main.py instance-20240324-050710:/home/ragindafirdaus01/simple-dockerize-flask-app/main.py \
-        && gcloud compute scp --zone=us-central1-a --ssh-key-file=./ssh_key_cloud_build docker-compose.yaml instance-20240324-050710:/home/ragindafirdaus01/simple-dockerize-flask-app/docker-compose.yaml \
         && gcloud compute ssh instance-20240324-050710 --zone=us-central1-a --ssh-key-file=./ssh_key_cloud_build \
           --command "\
             cd /home/ragindafirdaus01/simple-dockerize-flask-app/; \
             sudo docker compose down; \
+            sudo docker image prune --all; \
             sudo docker compose up -d"
