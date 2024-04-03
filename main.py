@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello_geek():
     env_var = os.getenv("HELLO_NAME", "world")
-    return {"message": f"hola hola adios {env_var}!"}
+    return {"message": f"hai {env_var}!"}
 
 
 if __name__ == "__main__":
