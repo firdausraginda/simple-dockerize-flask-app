@@ -45,7 +45,8 @@ steps:
   # 5. run bash command to:
     # a. set `ssh_key_cloud_build` file permission to ready only, to make it more secure
     # b. copy main.py from local to GCE VM instance
-    # c. re-run docker container on GCE VM instance
+    # c. remove tagged image from GCE VM instance
+    # d. re-run docker container on GCE VM instance
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'rerun-docker-container'
     entrypoint: 'bash'
