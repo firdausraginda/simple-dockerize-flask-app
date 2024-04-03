@@ -6,7 +6,7 @@ services:
     container_name: simple-dockerize-flask-app
     command: gunicorn -w 4 --reload -b 0.0.0.0:8080 main:app
     environment:
-      - HELLO_NAME=joko tingkir
+      - HELLO_NAME=kevin de bruyne
     ports:
       - 8080:8080
     volumes:
