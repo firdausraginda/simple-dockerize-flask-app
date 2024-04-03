@@ -2,7 +2,7 @@ steps:
 
   # 0. remove tagged docker image
   - name: 'gcr.io/cloud-builders/gcloud'
-    id: 'rerun-docker-container'
+    id: 'remove-tagged-docker-image'
     entrypoint: 'bash'
     args:
       - '-c'
