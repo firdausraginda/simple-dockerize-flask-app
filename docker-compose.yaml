@@ -1,8 +1,7 @@
 version: '3'
 services:
   app:
-    build: .
-    image: simple-dockerize-flask
+    image: us-east1-docker.pkg.dev/alpine-life-350508/docker-base-image/flask-app-img:latest
     container_name: simple-dockerize-flask-app
     command: gunicorn -w 4 --reload -b 0.0.0.0:8080 main:app
     ports:
