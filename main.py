@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 
 app = Flask(__name__)
@@ -5,7 +6,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_geek():
-    return {"message": "hello world !"}
+    env_var = os.getenv("HELLO_NAME", "world")
+    return {"message": f"hello {env_var}!"}
 
 
 if __name__ == "__main__":
