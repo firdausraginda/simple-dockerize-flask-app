@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 COPY . /app
 
 # set environment variable
-ENV HELLO_NAME='joko tingkir extra'
+ENV HELLO_NAME='joko tingkir extra 2'
 
 # run command
 CMD gunicorn -w 4 --reload -b 0.0.0.0:8080 main:app
